@@ -1,0 +1,134 @@
+🚀 Simple Serverless Application on AWS
+
+📌 Overview
+
+This project demonstrates how to build a simple serverless application using AWS Lambda, API Gateway, and Amazon S3.
+The application exposes an HTTP API that triggers a Lambda function and returns a response without managing any servers.
+
+---
+
+🛠️ AWS Services Used
+
+- AWS Lambda – Executes backend logic
+- Amazon API Gateway – Exposes REST API endpoint
+- AWS IAM – Manages permissions
+- Amazon CloudWatch – Logs and monitoring
+- Amazon S3 (Optional) – Static frontend hosting
+
+---
+
+📐 Architecture
+
+Client → API Gateway → AWS Lambda → Response
+
+---
+
+📁 Project Structure
+
+serverless-app/
+│
+├── lambda/
+│   └── index.js
+│
+├── README.md
+
+---
+
+✨ Lambda Function Code
+
+File: "lambda/index.js"
+
+exports.handler = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            message: "Hello from AWS Serverless Application!"
+        }),
+    };
+};
+
+---
+
+⚙️ Step-by-Step Implementation
+
+Step 1: Create IAM Role for Lambda
+
+1. Go to IAM → Roles → Create role
+2. Select Lambda
+3. Attach policy:
+   - "AWSLambdaBasicExecutionRole"
+4. Create role
+
+---
+
+Step 2: Create Lambda Function
+
+1. Open AWS Lambda
+2. Click Create function
+3. Choose Author from scratch
+4. Runtime: Node.js
+5. Attach the IAM role created earlier
+6. Paste the Lambda code
+7. Deploy
+
+---
+
+Step 3: Create API Gateway
+
+1. Go to API Gateway
+2. Create REST API
+3. Create a resource (e.g., "/hello")
+4. Create GET method
+5. Integration type: Lambda Function
+6. Enable Lambda Proxy Integration
+7. Deploy API
+
+---
+
+Step 4: Test the Application
+
+- Copy the Invoke URL
+- Open in browser or Postman
+- Expected output:
+
+{
+  "message": "Hello from AWS Serverless Application!"
+}
+
+---
+
+📊 Monitoring
+
+- Logs available in CloudWatch Logs
+- View Lambda execution metrics
+
+---
+
+🌟 Advantages of Serverless
+
+- No server management
+- Automatic scaling
+- Pay only for usage
+- Highly available
+
+---
+
+🔮 Future Enhancements
+
+- Add DynamoDB for data storage
+- Add authentication using Cognito
+- Host frontend using S3 + CloudFront
+
+---
+
+📌 Conclusion
+
+This project helps understand the core concept of serverless architecture using AWS.
+It is ideal for beginners and interview preparation.
+
+---
+
+👩‍💻 Author
+
+Evelin Richa
+AWS Learner | Cloud Enthusiast
